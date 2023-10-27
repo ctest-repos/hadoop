@@ -4,11 +4,11 @@ package org.apache.hadoop;
  * Author: Shuai Wang
  * Date:  10/26/23
  */
-import edu.illinois.ConfigTestSuite;
+import edu.illinois.CTestSuite;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite.SuiteClasses;
 
-@RunWith(ConfigTestSuite.class)
+@RunWith(CTestSuite.class)
 @SuiteClasses({
         org.apache.hadoop.conf.TestConfiguration.class,
         org.apache.hadoop.metrics2.impl.TestSinkQueue.class,
