@@ -25,6 +25,8 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.util.EnumSet;
 
+import edu.illinois.CTestClass;
+import edu.illinois.CTestJUnit4Runner;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.ByteBufferPositionedReadable;
 import org.apache.hadoop.fs.ByteBufferReadable;
@@ -44,9 +46,16 @@ import org.apache.hadoop.io.DataOutputBuffer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.apache.hadoop.fs.contract.ContractTestUtils.assertCapabilities;
 
+@RunWith(CTestJUnit4Runner.class)
+@CTestClass(value={"hadoop.security.crypto.codec.classes.aes.ctr.nopadding",
+        "hadoop.security.crypto.jce.provider",
+        "hadoop.security.crypto.cipher.suite",
+        "hadoop.security.java.secure.random.algorithm",
+        "haha"})
 public class TestCryptoStreams extends CryptoStreamsTestBase {
   /**
    * Data storage.

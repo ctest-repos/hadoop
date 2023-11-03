@@ -1422,6 +1422,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
    * @throws IllegalArgumentException when the value or name is null.
    */
   public void set(String name, String value, String source) {
+    ConfigTracker.markParmaAsSet(name);
     Preconditions.checkArgument(
         name != null,
         "Property name must not be null");
@@ -1443,6 +1444,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
       if(altNames != null) {
         for(String n: altNames) {
           if(!n.equals(name)) {
+            ConfigTracker.markParmaAsSet(n);
             getOverlay().setProperty(n, value);
             getProps().setProperty(n, value);
             putIntoUpdatingResource(n, new String[] {newSource});
@@ -1454,6 +1456,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
       String[] names = handleDeprecation(deprecationContext.get(), name);
       String altSource = "because " + name + " is deprecated";
       for(String n : names) {
+        ConfigTracker.markParmaAsSet(n);
         getOverlay().setProperty(n, value);
         getProps().setProperty(n, value);
         putIntoUpdatingResource(n, new String[] {altSource});

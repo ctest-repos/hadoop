@@ -2,9 +2,10 @@ package org.apache.hadoop;
 
 import edu.illinois.CTest;
 import edu.illinois.CTestClass;
-import edu.illinois.ConfigTestRunner;
+
 import edu.illinois.UnUsedConfigParamException;
 
+import edu.illinois.CTestJUnit4Runner;
 import org.apache.hadoop.conf.Configuration;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -13,7 +14,7 @@ import org.junit.runner.RunWith;
  * Author: Shuai Wang
  * Date:  10/26/23
  */
-@RunWith(ConfigTestRunner.class)
+@RunWith(CTestJUnit4Runner.class)
 @CTestClass(value={"class-parameter1"}, file="src/test/resources/ExampleCTest.json")
 public class ExampleCTest {
     private Configuration conf = null;
