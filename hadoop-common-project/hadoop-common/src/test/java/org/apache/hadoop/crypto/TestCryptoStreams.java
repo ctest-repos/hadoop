@@ -45,8 +45,15 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import org.junit.runner.RunWith;
+import edu.illinois.CTestJUnit4Runner;
+import edu.illinois.CTestClass;
+import edu.illinois.CTest;
+
 import static org.apache.hadoop.fs.contract.ContractTestUtils.assertCapabilities;
 
+@RunWith(CTestJUnit4Runner.class)
+@CTestClass(value={"haha"})
 public class TestCryptoStreams extends CryptoStreamsTestBase {
   /**
    * Data storage.
