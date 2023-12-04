@@ -83,6 +83,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import com.google.common.base.Charsets;
+import edu.illinois.ConfigTracker;
 import org.apache.commons.collections.map.UnmodifiableMap;
 import org.apache.hadoop.classification.InterfaceAudience;
 import org.apache.hadoop.classification.InterfaceStability;
@@ -793,6 +794,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
   /** A new configuration. */
   public Configuration() {
     this(true);
+    ConfigTracker.injectConfig((arg1, arg2) -> set(arg1, (String) arg2));
   }
 
   /** A new configuration where the behavior of reading from the default 
@@ -1194,9 +1196,11 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
    *         or null if no such property exists.
    */
   public String get(String name) {
+    ConfigTracker.markParamAsUsed(name);
     String[] names = handleDeprecation(deprecationContext.get(), name);
     String result = null;
     for(String n : names) {
+      ConfigTracker.markParamAsUsed(n);
       result = substituteVars(getProps().getProperty(n));
     }
     return result;
@@ -1351,6 +1355,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
    * @throws IllegalArgumentException when the value or name is null.
    */
   public void set(String name, String value, String source) {
+    ConfigTracker.markParamAsSet(name);
     Preconditions.checkArgument(
         name != null,
         "Property name must not be null");
@@ -1372,6 +1377,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
       if(altNames != null) {
         for(String n: altNames) {
           if(!n.equals(name)) {
+            ConfigTracker.markParamAsSet(n);
             getOverlay().setProperty(n, value);
             getProps().setProperty(n, value);
             putIntoUpdatingResource(n, new String[] {newSource});
@@ -1383,6 +1389,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
       String[] names = handleDeprecation(deprecationContext.get(), name);
       String altSource = "because " + name + " is deprecated";
       for(String n : names) {
+        ConfigTracker.markParamAsSet(n);
         getOverlay().setProperty(n, value);
         getProps().setProperty(n, value);
         putIntoUpdatingResource(n, new String[] {altSource});
@@ -1454,9 +1461,11 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
    *         doesn't exist.                    
    */
   public String get(String name, String defaultValue) {
+    ConfigTracker.markParamAsUsed(name);
     String[] names = handleDeprecation(deprecationContext.get(), name);
     String result = null;
     for(String n : names) {
+      ConfigTracker.markParamAsUsed(n);
       result = substituteVars(getProps().getProperty(n, defaultValue));
     }
     return result;
