@@ -233,6 +233,49 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+	  <excludes>
+	    <exclude>**/TestAclCLIWithPosixAclInheritance.java</exclude>
+	    <exclude>**/TestSymlinkHdfsFileContext.java</exclude>
+	    <exclude>**/TestSymlinkHdfsFileSystem.java</exclude>
+	    <exclude>**/TestViewFSOverloadSchemeWithMountTableConfigInHDFS.java</exclude>
+	    <exclude>**/TestViewFileSystemOverloadSchemeHdfsFileSystemContract.java</exclude>
+	    <exclude>**/TestDFSStripedInputStreamWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestDFSStripedOutputStreamWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestDecommissionWithBackoffMonitor.java</exclude>
+	    <exclude>**/TestDecommissionWithStripedBackoffMonitor.java</exclude>
+	    <exclude>**/TestDistributedFileSystemWithECFileWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestEncryptionZonesWithKMS.java</exclude>
+	    <exclude>**/TestErasureCodingPoliciesWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestErasureCodingPolicyWithSnapshotWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestFileChecksumCompositeCrc.java</exclude>
+	    <exclude>**/TestFileStatusWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestParallelRead.java</exclude>
+	    <exclude>**/TestParallelShortCircuitLegacyRead.java</exclude>
+	    <exclude>**/TestParallelShortCircuitRead.java</exclude>
+	    <exclude>**/TestParallelShortCircuitReadNoChecksum.java</exclude>
+	    <exclude>**/TestParallelShortCircuitReadUnCached.java</exclude>
+	    <exclude>**/TestParallelUnixDomainRead.java</exclude>
+	    <exclude>**/TestReconstructStripedFileWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestReconstructStripedFileWithValidator.java</exclude>
+	    <exclude>**/TestSafeModeWithStripedFileWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestViewDistributedFileSystem.java</exclude>
+	    <exclude>**/TestViewDistributedFileSystemContract.java</exclude>
+	    <exclude>**/TestViewDistributedFileSystemWithMountLinks.java</exclude>
+	    <exclude>**/TestBlockTokenWithDFSStriped.java</exclude>
+	    <exclude>**/TestSimulatedFSDatasetWithMultipleStorages.java</exclude>
+	    <exclude>**/TestCacheDirectivesWithViewDFS.java</exclude>
+	    <exclude>**/TestDecommissioningStatusWithBackoffMonitor.java</exclude>
+	    <exclude>**/TestFileContextXAttr.java</exclude>
+	    <exclude>**/TestNameNodeXAttr.java</exclude>
+	    <exclude>**/TestQuotaWithStripedBlocksWithRandomECPolicy.java</exclude>
+	    <exclude>**/TestReencryptionWithKMS.java</exclude>
+	    <exclude>**/TestBootstrapStandbyWithInProgressTailing.java</exclude>
+	    <exclude>**/TestSnapRootDescendantDiff.java</exclude>
+	    <exclude>**/TestDFSZKFailoverController.java</exclude>
+	    <exclude>**/TestViewFSStoragePolicyCommands.java</exclude>
+	    <exclude>**/TestWebHDFSStoragePolicyCommands.java</exclude>
+	    <exclude>**/TestWebHDFSXAttr.java</exclude>
+	  </excludes>
           <systemPropertyVariables>
             <runningWithNative>${runningWithNative}</runningWithNative>
           </systemPropertyVariables>

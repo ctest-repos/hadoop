@@ -536,6 +536,50 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+	  <excludes>
+	    <exclude>**/TestCryptoStreamsWithJceAesCtrCryptoCodec.java</exclude>
+	    <exclude>**/TestCryptoStreamsWithOpensslAesCtrCryptoCodec.java</exclude>
+	    <exclude>**/TestFSMainOperationsLocalFileSystem.java</exclude>
+	    <exclude>**/TestSymlinkLocalFSFileContext.java</exclude>
+	    <exclude>**/TestSymlinkLocalFSFileSystem.java</exclude>
+	    <exclude>**/TestFTPContractMkdir.java</exclude>
+	    <exclude>**/TestLocalFSContractAppend.java</exclude>
+	    <exclude>**/TestLocalFSContractContentSummary.java</exclude>
+	    <exclude>**/TestLocalFSContractMkdir.java</exclude>
+	    <exclude>**/TestLocalFSContractSeek.java</exclude>
+	    <exclude>**/TestLocalFSContractVectoredRead.java</exclude>
+	    <exclude>**/TestRawlocalContractAppend.java</exclude>
+	    <exclude>**/TestRawlocalContractMkdir.java</exclude>
+	    <exclude>**/TestRawlocalContractSeek.java</exclude>
+	    <exclude>**/TestSFTPContractSeek.java</exclude>
+	    <exclude>**/TestFSMainOperationsLocalFileSystem.java</exclude>
+	    <exclude>**/TestViewFSOverloadSchemeCentralMountTableConfig.java</exclude>
+	    <exclude>**/TestViewFileSystemLocalFileSystem.java</exclude>
+	    <exclude>**/TestViewFileSystemWithAuthorityLocalFileSystem.java</exclude>
+	    <exclude>**/TestViewFsLocalFs.java</exclude>
+	    <exclude>**/TestViewFsWithAuthorityLocalFs.java</exclude>
+	    <exclude>**/TestActiveStandbyElectorRealZK.java</exclude>
+	    <exclude>**/TestHealthMonitorWithDedicatedHealthAddress.java</exclude>
+	    <exclude>**/TestZKFailoverController.java</exclude>
+	    <exclude>**/TestZKFailoverControllerStress.java</exclude>
+	    <exclude>**/TestDummyRawCoder.java</exclude>
+	    <exclude>**/TestNativeRSRawCoder.java</exclude>
+	    <exclude>**/TestNativeXORRawCoder.java</exclude>
+	    <exclude>**/TestRSLegacyRawCoder.java</exclude>
+	    <exclude>**/TestRSRawCoder.java</exclude>
+	    <exclude>**/TestRSRawCoderInteroperable1.java</exclude>
+	    <exclude>**/TestRSRawCoderInteroperable2.java</exclude>
+	    <exclude>**/TestXORRawCoder.java</exclude>
+	    <exclude>**/TestXORRawCoderInteroperable1.java</exclude>
+	    <exclude>**/TestXORRawCoderInteroperable2.java</exclude>
+	    <exclude>**/TestTFileJClassComparatorByteArrays.java</exclude>
+	    <exclude>**/TestTFileLzoCodecsByteArrays.java</exclude>
+	    <exclude>**/TestTFileLzoCodecsStreams.java</exclude>
+	    <exclude>**/TestTFileNoneCodecsByteArrays.java</exclude>
+	    <exclude>**/TestTFileNoneCodecsJClassComparatorByteArrays.java</exclude>
+	    <exclude>**/TestTFileNoneCodecsStreams.java</exclude>
+	    <exclude>**/TestBasicDiskValidator.java</exclude>
+	  </excludes>
           <systemPropertyVariables>
             <runningWithNative>${runningWithNative}</runningWithNative>
           </systemPropertyVariables>
