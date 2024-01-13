@@ -543,7 +543,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <argLine>
-            -javaagent:/Users/allenwang/.m2/repository/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar
+            -javaagent:/Users/lianxinyu/.m2/repository/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar
           </argLine>
           <systemPropertyVariables>
             <runningWithNative>${runningWithNative}</runningWithNative>
