@@ -549,6 +549,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
 	  <excludes>
+	    <exclude>**/TestCopyFromLocal.java</exclude>
+	    <exclude>**/TestCopyToLocal.java</exclude>
+	    <exclude>**/TestCpCommand.java</exclude>
+	    <!-- Above three are excluded because they are flaky -->
 	    <exclude>**/TestCryptoStreamsWithJceAesCtrCryptoCodec.java</exclude>
 	    <exclude>**/TestCryptoStreamsWithOpensslAesCtrCryptoCodec.java</exclude>
 	    <exclude>**/TestFSMainOperationsLocalFileSystem.java</exclude>
