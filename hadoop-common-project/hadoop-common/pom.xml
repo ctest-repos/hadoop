@@ -39,6 +39,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>edu.illinois</groupId>
+      <artifactId>ctest4j-junit4</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.hadoop.thirdparty</groupId>
       <artifactId>hadoop-shaded-protobuf_3_7</artifactId>
     </dependency>
