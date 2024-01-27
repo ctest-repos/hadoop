@@ -22,6 +22,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.runner.RunWith;
+import edu.illinois.CTestJUnit4Runner;
+import edu.illinois.CTestClass;
+import edu.illinois.CTest;
 import java.util.function.Supplier;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -57,7 +61,8 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.fail;
 
-
+@RunWith(CTestJUnit4Runner.class)
+@CTestClass
 public class TestZKDelegationTokenSecretManager {
   private static final Logger LOG =
       LoggerFactory.getLogger(TestZKDelegationTokenSecretManager.class);
