@@ -24,7 +24,7 @@ import java.util.List;
 
 import edu.illinois.CTest;
 import edu.illinois.CTestClass;
-import edu.illinois.CTestJUnit4Runner2;
+import edu.illinois.CTestJUnit4Runner;
 import edu.illinois.UnUsedConfigParamException;
 import org.junit.runner.RunWith;
 
@@ -63,7 +63,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.fail;
 
-@RunWith(CTestJUnit4Runner2.class)
+@RunWith(CTestJUnit4Runner.class)
 @CTestClass()
 public class TestZKDelegationTokenSecretManager {
   private static final Logger LOG =
@@ -110,7 +110,7 @@ public class TestZKDelegationTokenSecretManager {
   }
 
   @SuppressWarnings("unchecked")
-  @CTest
+  @Test
   public void testMultiNodeOperations() throws Exception {
     for (int i = 0; i < TEST_RETRIES; i++) {
       DelegationTokenManager tm1, tm2 = null;

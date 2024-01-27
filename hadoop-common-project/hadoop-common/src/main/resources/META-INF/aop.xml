@@ -1,0 +1,8 @@
+<aspectj>
+    <weaver>
+        <include within="org.apache.hadoop.conf.Configuration"/>
+    </weaver>
+    <aspects>
+        <aspect name="edu.illinois.agent.AspectJWeaver"/>
+    </aspects>
+</aspectj>
