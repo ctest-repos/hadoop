@@ -24,6 +24,7 @@ import com.ctc.wstx.io.SystemId;
 import com.ctc.wstx.stax.WstxInputFactory;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import edu.illinois.ConfigTracker;
 import org.apache.hadoop.thirdparty.com.google.common.annotations.VisibleForTesting;
 
 import java.io.BufferedInputStream;
@@ -815,6 +816,7 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
   /** A new configuration. */
   public Configuration() {
     this(true);
+    ConfigTracker.injectConfig((arg1, arg2) -> set(arg1, (String) arg2));
   }
 
   /** A new configuration where the behavior of reading from the default 
@@ -1240,9 +1242,11 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
    *         or null if no such property exists.
    */
   public String get(String name) {
+    ConfigTracker.markParamAsUsed(name);
     String[] names = handleDeprecation(deprecationContext.get(), name);
     String result = null;
     for(String n : names) {
+      ConfigTracker.markParamAsUsed(name);
       result = substituteVars(getProps().getProperty(n));
     }
     return result;
@@ -1501,9 +1505,11 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
    *         doesn't exist.                    
    */
   public String get(String name, String defaultValue) {
+    ConfigTracker.markParamAsUsed(name);
     String[] names = handleDeprecation(deprecationContext.get(), name);
     String result = null;
     for(String n : names) {
+      ConfigTracker.markParamAsUsed(name);
       result = substituteVars(getProps().getProperty(n, defaultValue));
     }
     return result;

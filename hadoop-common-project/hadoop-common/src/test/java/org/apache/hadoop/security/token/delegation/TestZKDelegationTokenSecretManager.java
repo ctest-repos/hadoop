@@ -25,6 +25,9 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 
 import java.util.function.Supplier;
+
+import edu.illinois.CTestClass;
+import edu.illinois.CTestJUnit4Runner;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -49,12 +52,14 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
+import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.fail;
 
-
+@RunWith(CTestJUnit4Runner.class)
+@CTestClass
 public class TestZKDelegationTokenSecretManager {
   private static final Logger LOG =
       LoggerFactory.getLogger(TestZKDelegationTokenSecretManager.class);
